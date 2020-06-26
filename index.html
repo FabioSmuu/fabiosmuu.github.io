@@ -17,20 +17,20 @@ FB.init({
 
 FB.getLoginStatus(conectar, true)
 
-FB.Event.subscribe('auth.login', function(response) {
-	alert('Primeira vez do usuario.')
-})
-
-FB.Event.subscribe('auth.logout', function(response) {
-	//Este evento é acionado quando o aplicativo percebe que não há mais um usuário válido (em outras palavras, ele teve uma sessão, mas não pode mais validar o usuário atual).
-	alert('sessaõ quebrada.')
-})
-
 function login() {
 	FB.login(conectar, {scope:'email'})
 }
 
 function conectar(response) {
+	if (response.status === 'connected') {
+		var uid = response.authResponse.userID
+		var accessToken = response.authResponse.accessToken;
+	} else if (response.status === 'not_authorized') {
+		alert('a')
+	} else {
+		alert('b')
+	}
+
 	if (response.authResponse) {
 		FB.api('/me', function(response) {
 			document.getElementById('info').innerHTML = 'Olá, ' + response.name + '.'
