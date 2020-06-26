@@ -4,6 +4,7 @@
 //https://developers.facebook.com/docs/javascript/reference/v7.0
 //https://developers.facebook.com/docs/app-events/gamesonfacebook
 //https://developers.facebook.com/docs/reference/javascript/FB.AppEvents.LogEvent
+//https://developers.facebook.com/docs/games_payments/payments_lite
 
 FB.init({
 	appId            : '3257310224319370',
@@ -24,7 +25,8 @@ function conectar(response) {
 		FB.api('/me', function(response) {
 			alert('Olá, ' + response.name + '.')
 			document.getElementById('gameoff').style.display = 'none'			
-			document.getElementById('gameon').style.display = 'block'			
+			document.getElementById('gameon').style.display = 'block'
+			main(response)
 		})
 	} else {
 		alert('Usuario não autenticado')
@@ -33,14 +35,38 @@ function conectar(response) {
 	}
 }
 
+function buy() {
+	var obj = {
+		method: 'pay',
+		action: 'purchaseitem',
+		product: 'YOUR_PRODUCT_URL'
+	}
+
+	FB.ui(obj, function(data) {
+		console.log(data)
+	})
+}
+
+document.getElementById('pay').onclick = function() {buy()}
+
 function comprar() {
-
-	console.log(FB.activateApp())
-	console.log(FB.AppEvents.logEvent(FB.AppEvents.EventNames.ACHIEVED_LEVEL))
-
-	var params = {}
-	params[FB.AppEvents.ParameterNames.CONTENT_ID] = '12345'
-	FB.AppEvents.logPurchase(98.76, 'USD', params)
+	FB.api(
+		'/app/products', 
+		'get', 
+		function(response) {
+			console.log(response)
+		}
+	)
+	
+	FB.ui(
+		{
+			method: 'pay',
+			action: 'purchaseiap',
+			product_id: 'com.fb.friendsmash.coins.10',
+			developer_payload: 'this_is_a_test_payload'
+		},
+		response => (console.log(response))
+	)
 }
 
 function compartilhar() {
@@ -50,6 +76,14 @@ function compartilhar() {
 	}, function(response){
 		if (response && !response.error_message) alert('ok')
 	})
+}
+
+function main() {
+	amigos()
+}
+
+function amigos() {
+	console.log(FB.gamingservices.friendFinder())
 }
 </script>
 
