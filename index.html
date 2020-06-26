@@ -5,6 +5,7 @@
 //https://developers.facebook.com/docs/app-events/gamesonfacebook
 //https://developers.facebook.com/docs/reference/javascript/FB.AppEvents.LogEvent
 //https://developers.facebook.com/docs/games_payments/payments_lite
+//https://developers.facebook.com/docs/javascript/reference/FB.ui
 
 FB.init({
 	appId            : '3257310224319370',
@@ -15,6 +16,15 @@ FB.init({
 
 
 FB.getLoginStatus(conectar)
+
+FB.Event.subscribe('auth.login', function(response) {
+	alert('Primeira vez do usuario.')
+})
+
+FB.Event.subscribe('auth.logout', function(response) {
+	//Este evento é acionado quando o aplicativo percebe que não há mais um usuário válido (em outras palavras, ele teve uma sessão, mas não pode mais validar o usuário atual).
+	alert('sessaõ quebrada.')
+})
 
 function login() {
 	FB.login(conectar, {scope:'email'})
@@ -60,7 +70,7 @@ function listar() {
 			console.log('Result:')
 			console.log(result)
 		}
-	)*/
+	)
 	
 	FB.api(
 		'/app/purchases',
@@ -70,7 +80,7 @@ function listar() {
 			console.log('purchases payload:')
 			console.log(payload)
 		}
-	)
+	)*/
 
 
 	FB.api(
