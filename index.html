@@ -20,11 +20,7 @@ function conectar(response) {
 	if (response.authResponse) {
 		FB.api('/me', function(response) {
 			alert('Olá, ' + response.name + '.')
-			document.getElementById('game').style.display = 'block'
-
-			console.log(FB.activateApp())
-			console.log(FB.AppEvents.logEvent(FB.AppEvents.EventNames.ACHIEVED_LEVEL))
-			
+			document.getElementById('game').style.display = 'block'			
 		})
 	} else {
 		alert('Usuario não autenticado')
@@ -33,9 +29,13 @@ function conectar(response) {
 }
 
 function comprar() {
+
+	console.log(FB.activateApp())
+	console.log(FB.AppEvents.logEvent(FB.AppEvents.EventNames.ACHIEVED_LEVEL))
+
 	var params = {}
-	params[FB.AppEvents.ParameterNames.CONTENT_ID] = 'ProdutoTeste'
-	FB.AppEvents.logPurchase(1.00, 'BRL', params)
+	params[FB.AppEvents.ParameterNames.CONTENT_ID] = '12345'
+	FB.AppEvents.logPurchase(98.76, 'USD', params)
 }
 
 function compartilhar() {
