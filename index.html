@@ -15,7 +15,7 @@ FB.init({
 })
 
 
-FB.getLoginStatus(conectar)
+FB.getLoginStatus(conectar, true)
 
 FB.Event.subscribe('auth.login', function(response) {
 	alert('Primeira vez do usuario.')
