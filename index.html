@@ -13,20 +13,19 @@ window.fbAsyncInit = function() {
     })
 }
 
-FB.getLoginStatus(checkLoginStatus)
+FB.getLoginStatus(conectar)
+FB.login(conectar, {scope:'email'})
 
-function authUser() {
-	FB.login(checkLoginStatus, {scope:'email'})
-}
-
-function checkLoginStatus(response) {
-	if(response && response.status == 'connected') {
-		alert('Usuario autenticado')
-		document.getElementById('loginButton').style.display = 'none'
-		console.log('Access Token: ' + response.authResponse.accessToken)
+function conectar(response) {
+	if (response.authResponse) {
+		FB.api('/me', function(response) {
+			alert('Olá, ' + response.name + '.')
+			document.getElementById('comp').style.display = 'block'
+			console.log('Access Token: ' + response.authResponse.accessToken)
+		})
 	} else {
 		alert('Usuario não autenticado')
-		document.getElementById('loginButton').style.display = 'block'
+		document.getElementById('comp').style.display = 'none'
 	}
 }
 
@@ -41,4 +40,4 @@ function compartilhar() {
 </script>
 <script src="//connect.facebook.net/en_US/all.js"></script>
 
-<input id="loginButton" type="button" value="Login!" onclick="authUser()" />
+<input id="comp" type="button" value="Compartilha" onclick="compartilhar()" />
