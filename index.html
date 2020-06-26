@@ -11,32 +11,32 @@ window.fbAsyncInit = function() {
 		xfbml            : true,
 		version          : 'v7.0'
     })
+}
 
-	FB.getLoginStatus(checkLoginStatus)
+FB.getLoginStatus(checkLoginStatus)
 
-	function authUser() {
-		FB.login(checkLoginStatus, {scope:'email'})
-	}
+function authUser() {
+	FB.login(checkLoginStatus, {scope:'email'})
+}
 
-	function checkLoginStatus(response) {
-		if(response && response.status == 'connected') {
-			alert('Usuario autenticado')
-			document.getElementById('loginButton').style.display = 'none'
-			console.log('Access Token: ' + response.authResponse.accessToken)
-		} else {
-			alert('Usuario não autenticado')
-			document.getElementById('loginButton').style.display = 'block'
-		}
+function checkLoginStatus(response) {
+	if(response && response.status == 'connected') {
+		alert('Usuario autenticado')
+		document.getElementById('loginButton').style.display = 'none'
+		console.log('Access Token: ' + response.authResponse.accessToken)
+	} else {
+		alert('Usuario não autenticado')
+		document.getElementById('loginButton').style.display = 'block'
 	}
-	
-	function compartilhar() {
-		FB.ui({
-			method: 'share',
-			href: 'https://developers.facebook.com/docs/'
-		}, function(response){
-			if (response && !response.error_message) alert('ok')
-		})
-	}
+}
+
+function compartilhar() {
+	FB.ui({
+		method: 'share',
+		href: 'https://developers.facebook.com/docs/'
+	}, function(response){
+		if (response && !response.error_message) alert('ok')
+	})
 }
 </script>
 <script src="//connect.facebook.net/en_US/all.js"></script>
