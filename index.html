@@ -23,8 +23,18 @@
 	<button onclick='FB.AppEvents.logEvent("buttonClicked")'>
 	  Click me
 	</button>
+	
+	<button onclick='teste()'>
+	  teste
+	</button>
 <script>
 
+	function teste() {
+		var params = {}
+	params[FB.AppEvents.ParameterNames.CONTENT_ID] = 'ProdutoTeste'
+	FB.AppEvents.logPurchase(1.00, 'BRL', params)
+	}
+	
   window.fbAsyncInit = function() {
     FB.init({
       appId      : '3257310224319370',
