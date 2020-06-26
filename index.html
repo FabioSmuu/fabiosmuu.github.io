@@ -100,11 +100,19 @@ function main() {
 function amigos() {
 	//console.log(FB.gamingservices.friendFinder())
 }
+
+FB.ui({         
+	display: 'popup',
+	method: 'instant_experiences_preview',
+	canvas_id: 'ads'
+})
 </script>
 
 <div id="gameoff">
 	<input id="login" type="button" value="Logar com Facebook" onclick="login()"/>
 </div>
+
+<canvas id="ads" width="600" height="400"></canvas>
 
 <div id="gameon" style="display: none;">
 	<input id="comp" type="button" value="Compartilha" onclick="compartilhar()"/>
