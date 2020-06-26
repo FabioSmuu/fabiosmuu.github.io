@@ -20,22 +20,22 @@ function conectar(response) {
 	if (response.authResponse) {
 		FB.api('/me', function(response) {
 			alert('Olá, ' + response.name + '.')
-			document.getElementById('comp').style.display = 'block'
-			console.log('Access Token: ' + response.authResponse.accessToken)
-			
-			var params = {}
-			params[FB.AppEvents.ParameterNames.CONTENT_ID] = 'ProdutoTeste'
-			FB.AppEvents.logPurchase(1.00, 'BRL', params)
-			
+			document.getElementById('game').style.display = 'block'
+
 			console.log(FB.activateApp())
-			
 			console.log(FB.AppEvents.logEvent(FB.AppEvents.EventNames.ACHIEVED_LEVEL))
 			
 		})
 	} else {
 		alert('Usuario não autenticado')
-		document.getElementById('comp').style.display = 'none'
+		document.getElementById('game').style.display = 'none'
 	}
+}
+
+function comprar() {
+	var params = {}
+	params[FB.AppEvents.ParameterNames.CONTENT_ID] = 'ProdutoTeste'
+	FB.AppEvents.logPurchase(1.00, 'BRL', params)
 }
 
 function compartilhar() {
@@ -48,5 +48,7 @@ function compartilhar() {
 }
 </script>
 
-<input id="comp" type="button" value="Compartilha" onclick="compartilhar()" />
-<div id="lv">--</div>
+<div id="game">
+	<input id="comp" type="button" value="Compartilha" onclick="compartilhar()"/>
+	<input id="compra" type="button" value="R$ 1,00" onclick="comprar()"/>
+</div>
