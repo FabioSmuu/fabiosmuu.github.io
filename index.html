@@ -33,6 +33,15 @@
 		var params = {}
 	params[FB.AppEvents.ParameterNames.CONTENT_ID] = 'ProdutoTeste'
 	FB.AppEvents.logPurchase(1.00, 'BRL', params)
+
+//
+var params = {};
+params[FB.AppEvents.ParameterNames.LEVEL] = '12'
+FB.AppEvents.logEvent(
+  FB.AppEvents.EventNames.ACHIEVED_LEVEL,
+  null,
+  params
+)
 	}
 	
   window.fbAsyncInit = function() {
