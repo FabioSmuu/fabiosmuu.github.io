@@ -1,12 +1,16 @@
 <div id="fb-root"></div>
-<script src="//connect.facebook.net/en_US/all.js"></script>
 <script type="text/javascript">
-	FB.init({
-		appId: 'APP_ID',
-		xfbml: true,
-		status: true,
-		cookie: true
-	})
+//https://developers.facebook.com/docs/javascript/reference/v7.0
+//https://developers.facebook.com/docs/app-events/gamesonfacebook
+//https://developers.facebook.com/docs/reference/javascript/FB.AppEvents.LogEvent
+
+window.fbAsyncInit = function() {
+    FB.init({
+		appId            : '3257310224319370',
+		autoLogAppEvents : true,
+		xfbml            : true,
+		version          : 'v7.0'
+    })
 
 	FB.getLoginStatus(checkLoginStatus)
 
@@ -24,6 +28,17 @@
 			document.getElementById('loginButton').style.display = 'block'
 		}
 	}
+	
+	function compartilhar() {
+		FB.ui({
+			method: 'share',
+			href: 'https://developers.facebook.com/docs/'
+		}, function(response){
+			if (response && !response.error_message) alert('ok')
+		})
+	}
+}
 </script>
+<script src="//connect.facebook.net/en_US/all.js"></script>
 
 <input id="loginButton" type="button" value="Login!" onclick="authUser()" />
