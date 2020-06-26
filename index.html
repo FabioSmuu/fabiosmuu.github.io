@@ -27,7 +27,9 @@ function conectar(response) {
 			params[FB.AppEvents.ParameterNames.CONTENT_ID] = 'ProdutoTeste'
 			FB.AppEvents.logPurchase(1.00, 'BRL', params)
 			
-			FB.AppEvents.logEvent(FB.AppEvents.EventNames.ACHIEVED_LEVEL)
+			console.log(FB.activateApp())
+			
+			console.log(FB.AppEvents.logEvent(FB.AppEvents.EventNames.ACHIEVED_LEVEL))
 			
 		})
 	} else {
