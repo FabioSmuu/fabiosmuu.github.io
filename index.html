@@ -1,68 +1,29 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-	<title>Teste</title>
-	
-	<!-- Standardised web app manifest -->
-	<link rel="manifest" href="appmanifest.json" />
-	
-	<!-- Allow fullscreen mode on iOS devices. (These are Apple specific meta tags.) -->
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui" />
-	<meta name="apple-mobile-web-app-capable" content="yes" />
-	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
-	<meta name="HandheldFriendly" content="true" />
-	
-	<meta name="mobile-web-app-capable" content="yes" />
-	
-</head> 
- 
-<body> 
-	<h1>Teste!</h1>
-	<button onclick='FB.AppEvents.logEvent("buttonClicked")'>
-	  Click me
-	</button>
-	
-	<button onclick='teste()'>
-	  teste
-	</button>
-<script>
+<div id="fb-root"></div>
+<script src="//connect.facebook.net/en_US/all.js"></script>
+<script type="text/javascript">
+	FB.init({
+		appId: 'APP_ID',
+		xfbml: true,
+		status: true,
+		cookie: true
+	})
 
-	function teste() {
-		var params = {}
-	params[FB.AppEvents.ParameterNames.CONTENT_ID] = 'ProdutoTeste'
-	FB.AppEvents.logPurchase(1.00, 'BRL', params)
+	FB.getLoginStatus(checkLoginStatus)
 
-//
-var params = {};
-params[FB.AppEvents.ParameterNames.LEVEL] = '12'
-FB.AppEvents.logEvent(
-  FB.AppEvents.EventNames.ACHIEVED_LEVEL,
-  null,
-  params
-)
+	function authUser() {
+		FB.login(checkLoginStatus, {scope:'email'})
 	}
-	
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId      : '3257310224319370',
-      cookie     : true,
-      xfbml      : true,
-      version    : 'v7.0'
-    });
-      
-    FB.AppEvents.logPageView();   
-      
-  };
 
-  (function(d, s, id){
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement(s); js.id = id;
-     js.src = "https://connect.facebook.net/en_US/sdk.js";
-     fjs.parentNode.insertBefore(js, fjs);
-   }(document, 'script', 'facebook-jssdk'));
+	function checkLoginStatus(response) {
+		if(response && response.status == 'connected') {
+			alert('Usuario autenticado')
+			document.getElementById('loginButton').style.display = 'none'
+			console.log('Access Token: ' + response.authResponse.accessToken)
+		} else {
+			alert('Usuario não autenticado')
+			document.getElementById('loginButton').style.display = 'block'
+		}
+	}
 </script>
-</body> 
-</html> 
+
+<input id="loginButton" type="button" value="Login!" onclick="authUser()" />
