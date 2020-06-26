@@ -22,6 +22,11 @@ function conectar(response) {
 			alert('Olá, ' + response.name + '.')
 			document.getElementById('comp').style.display = 'block'
 			console.log('Access Token: ' + response.authResponse.accessToken)
+			
+			var params = {}
+			params[FB.AppEvents.ParameterNames.CONTENT_ID] = 'ProdutoTeste'
+			FB.AppEvents.logPurchase(1.00, 'BRL', params)
+			
 		})
 	} else {
 		alert('Usuario não autenticado')
@@ -41,3 +46,4 @@ function compartilhar() {
 <script src="//connect.facebook.net/en_US/all.js"></script>
 
 <input id="comp" type="button" value="Compartilha" onclick="compartilhar()" />
+<div id="lv">--</div>
