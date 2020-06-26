@@ -17,22 +17,15 @@ FB.init({
 
 FB.getLoginStatus(conectar, true)
 
-function login() {
+//function login() {
 	FB.login(conectar, {scope:'email'})
-}
+//}
 
 function conectar(response) {
-	if (response.status === 'connected') {
-		var uid = response.authResponse.userID
-		var accessToken = response.authResponse.accessToken;
-	} else if (response.status === 'not_authorized') {
-		alert('a')
-	} else {
-		alert('b')
-	}
-
 	if (response.authResponse) {
 		FB.api('/me', function(response) {
+			var uid = response.authResponse.userID
+			var accessToken = response.authResponse.accessToken
 			document.getElementById('info').innerHTML = 'Olá, ' + response.name + '.'
 			document.getElementById('gameoff').style.display = 'none'			
 			document.getElementById('gameon').style.display = 'block'
