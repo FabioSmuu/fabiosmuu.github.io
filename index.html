@@ -77,8 +77,8 @@ function listar() {
 		'/app/products', 
 		'get', 
 		function(response) {
-			for (var produto in response) {
-				console.log(produto)
+			for (let x in response.data) {
+				console.log(response.data[x])
 			}
 		}
 	)
@@ -95,26 +95,26 @@ function compartilhar() {
 
 function main() {
 	amigos()
+		
+	FB.ui({         
+		display: 'popup',
+		method: 'instant_experiences_preview',
+		canvas_id: 'ads'
+	})
 }
 
 function amigos() {
 	//console.log(FB.gamingservices.friendFinder())
 }
-
-FB.ui({         
-	display: 'popup',
-	method: 'instant_experiences_preview',
-	canvas_id: 'ads'
-})
 </script>
 
 <div id="gameoff">
 	<input id="login" type="button" value="Logar com Facebook" onclick="login()"/>
 </div>
 
+<canvas id="ads" width="600" height="400"></canvas>
 
 <div id="gameon" style="display: none;">
-	<canvas id="ads" width="600" height="400"></canvas>
 	<input id="comp" type="button" value="Compartilha" onclick="compartilhar()"/>
 	<input id="compra" type="button" value="Listar" onclick="listar()"/>
 	<input id="pay" type="button" value="R$ 1,00" onclick="comprar()"/>
