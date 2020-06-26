@@ -1,17 +1,17 @@
 <div id="fb-root"></div>
+<script src="//connect.facebook.net/en_US/all.js"></script>
 <script type="text/javascript">
 //https://developers.facebook.com/docs/javascript/reference/v7.0
 //https://developers.facebook.com/docs/app-events/gamesonfacebook
 //https://developers.facebook.com/docs/reference/javascript/FB.AppEvents.LogEvent
 
-window.fbAsyncInit = function() {
-    FB.init({
-		appId            : '3257310224319370',
-		autoLogAppEvents : true,
-		xfbml            : true,
-		version          : 'v7.0'
-    })
-}
+FB.init({
+	appId            : '3257310224319370',
+	autoLogAppEvents : true,
+	xfbml            : true,
+	version          : 'v7.0'
+})
+
 
 FB.getLoginStatus(conectar)
 FB.login(conectar, {scope:'email'})
@@ -47,7 +47,6 @@ function compartilhar() {
 	})
 }
 </script>
-<script src="//connect.facebook.net/en_US/all.js"></script>
 
 <input id="comp" type="button" value="Compartilha" onclick="compartilhar()" />
 <div id="lv">--</div>
