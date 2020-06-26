@@ -14,17 +14,22 @@ FB.init({
 
 
 FB.getLoginStatus(conectar)
-FB.login(conectar, {scope:'email'})
+
+function login() {
+	FB.login(conectar, {scope:'email'})
+}
 
 function conectar(response) {
 	if (response.authResponse) {
 		FB.api('/me', function(response) {
 			alert('Olá, ' + response.name + '.')
-			document.getElementById('game').style.display = 'block'			
+			document.getElementById('gameoff').style.display = 'none'			
+			document.getElementById('gameon').style.display = 'block'			
 		})
 	} else {
 		alert('Usuario não autenticado')
-		document.getElementById('game').style.display = 'none'
+		document.getElementById('gameoff').style.display = 'block'
+		document.getElementById('gameon').style.display = 'none'
 	}
 }
 
@@ -48,7 +53,11 @@ function compartilhar() {
 }
 </script>
 
-<div id="game">
+<div id="gameoff">
+	<input id="login" type="button" value="Logar com Facebook" onclick="login()"/>
+</div>
+
+<div id="gameon">
 	<input id="comp" type="button" value="Compartilha" onclick="compartilhar()"/>
 	<input id="compra" type="button" value="R$ 1,00" onclick="comprar()"/>
 </div>
