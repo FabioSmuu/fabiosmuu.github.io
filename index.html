@@ -51,7 +51,7 @@ function comprar() {
 //document.getElementById('pay').onclick = function() {buy()}
 
 function listar() {
-	FB.api(
+	/*FB.api(
 		'/' + PURCHASE_TOKEN + '/consume',
 		'post',
 		{access_token: access_token},
@@ -59,6 +59,16 @@ function listar() {
 			console.log('consuming product', productId, 'with purchase token', purchaseToken)
 			console.log('Result:')
 			console.log(result)
+		}
+	)*/
+	
+	FB.api(
+		'/app/purchases',
+		'get',
+		{access_token: 'ACCESS_TOKEN'},
+		payload => {
+			console.log('purchases payload:')
+			console.log(payload)
 		}
 	)
 
@@ -88,7 +98,7 @@ function main() {
 }
 
 function amigos() {
-	console.log(FB.gamingservices.friendFinder())
+	//console.log(FB.gamingservices.friendFinder())
 }
 </script>
 
@@ -96,7 +106,7 @@ function amigos() {
 	<input id="login" type="button" value="Logar com Facebook" onclick="login()"/>
 </div>
 
-<div id="gameon">
+<div id="gameon" style="display: none;">
 	<input id="comp" type="button" value="Compartilha" onclick="compartilhar()"/>
 	<input id="compra" type="button" value="Listar" onclick="listar()"/>
 	<input id="pay" type="button" value="R$ 1,00" onclick="comprar()"/>
