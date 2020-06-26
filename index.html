@@ -35,11 +35,12 @@ function conectar(response) {
 	}
 }
 
-function buy() {
+function comprar() {
 	var obj = {
 		method: 'pay',
 		action: 'purchaseitem',
-		product: 'YOUR_PRODUCT_URL'
+		product: '0001',
+		developer_payload: 'this_is_a_test_payload'
 	}
 
 	FB.ui(obj, function(data) {
@@ -49,23 +50,15 @@ function buy() {
 
 //document.getElementById('pay').onclick = function() {buy()}
 
-function comprar() {
+function listar() {
 	FB.api(
 		'/app/products', 
 		'get', 
 		function(response) {
-			console.log(response)
+			response.forEarch(produto => {
+				console.log(produto)
+			})
 		}
-	)
-	
-	FB.ui(
-		{
-			method: 'pay',
-			action: 'purchaseiap',
-			product_id: 'com.fb.friendsmash.coins.10',
-			developer_payload: 'this_is_a_test_payload'
-		},
-		response => (console.log(response))
 	)
 }
 
@@ -93,8 +86,8 @@ function amigos() {
 
 <div id="gameon">
 	<input id="comp" type="button" value="Compartilha" onclick="compartilhar()"/>
-	<input id="compra" type="button" value="R$ 1,00" onclick="comprar()"/>
-	<input id="pay" type="button" value="Comprar" onclick="buy()"/>
+	<input id="compra" type="button" value="Listar" onclick="listar()"/>
+	<input id="pay" type="button" value="R$ 1,00" onclick="comprar()"/>
     <div class="returndata" id="output"></div>
 
 </div>
