@@ -40,7 +40,7 @@ function comprar() {
 		method: 'pay',
 		action: 'purchaseitem',
 		product: '0001',
-		developer_payload: 'this_is_a_test_payload'
+		developer_payload: ''
 	}
 
 	FB.ui(obj, function(data) {
@@ -52,10 +52,22 @@ function comprar() {
 
 function listar() {
 	FB.api(
+		'/' + PURCHASE_TOKEN + '/consume',
+		'post',
+		{access_token: access_token},
+		result => {
+			console.log('consuming product', productId, 'with purchase token', purchaseToken)
+			console.log('Result:')
+			console.log(result)
+		}
+	)
+
+
+	FB.api(
 		'/app/products', 
 		'get', 
 		function(response) {
-			response.forEarch(produto => {
+			for (var produto in response) {
 				console.log(produto)
 			})
 		}
