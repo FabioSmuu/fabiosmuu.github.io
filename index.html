@@ -33,13 +33,13 @@ function login() {
 function conectar(response) {
 	if (response.authResponse) {
 		FB.api('/me', function(response) {
-			alert('Olá, ' + response.name + '.')
+			document.getElementById('info').innerHTML = 'Olá, ' + response.name + '.'
 			document.getElementById('gameoff').style.display = 'none'			
 			document.getElementById('gameon').style.display = 'block'
 			main(response)
 		})
 	} else {
-		alert('Usuario não autenticado')
+		document.getElementById('info').innerHTML = 'Usuario não autenticado'
 		document.getElementById('gameoff').style.display = 'block'
 		document.getElementById('gameon').style.display = 'none'
 	}
@@ -105,12 +105,6 @@ function compartilhar() {
 
 function main() {
 	amigos()
-		
-	FB.ui({         
-		display: 'popup',
-		method: 'instant_experiences_preview',
-		canvas_id: 'ads'
-	})
 }
 
 function amigos() {
@@ -122,12 +116,9 @@ function amigos() {
 	<input id="login" type="button" value="Logar com Facebook" onclick="login()"/>
 </div>
 
-<canvas id="ads" width="600" height="400"></canvas>
-
 <div id="gameon" style="display: none;">
 	<input id="comp" type="button" value="Compartilha" onclick="compartilhar()"/>
 	<input id="compra" type="button" value="Listar" onclick="listar()"/>
 	<input id="pay" type="button" value="R$ 1,00" onclick="comprar()"/>
-    <div class="returndata" id="output"></div>
-	<div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-width="" data-layout="button" data-action="like" data-size="small" data-share="true"></div>
+    <div id="info"></div>
 </div>
