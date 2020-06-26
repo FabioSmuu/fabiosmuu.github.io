@@ -20,7 +20,11 @@
  
 <body> 
 	<h1>Teste!</h1>
+<button onclick='FB.AppEvents.logEvent("buttonClicked")'>
+  Click me
+</button>
 <script>
+
   window.fbAsyncInit = function() {
     FB.init({
       appId      : '3257310224319370',
