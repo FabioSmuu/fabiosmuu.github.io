@@ -1,0 +1,260 @@
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <title>DeehLeh</title>
+   <meta name="keywords" content="DeehLeh, Construct2, Construc3, Scirra, Programador, Dev">
+   <meta name="description" content="Descriçãozinha.">
+   <meta name="author" content="DeehLeh">
+   <link rel="preconnect" href="https://fonts.gstatic.com">
+   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap" rel="stylesheet">
+   <style>
+      :root {
+		  --textotitulo: #64676a;
+		  --textopadrao: #fff;
+		  --background: #18191a;
+		  --janela: #242526;
+		  --headerborda: #373839;
+      }
+      * {
+		  font-family: 'Roboto', sans-serif;
+		  margin: 0;
+		  padding: 0;
+		  width: 100%;
+		  border: none;
+		  background-color: var(--background);
+		  overflow: hidden;
+		  text-decoration: none;
+      }
+      header {
+		  position: sticky;
+		  top: 0;
+		  background-color: var(--janela);
+		  height: 7%;
+		  border-bottom: 2px solid var(--headerborda);
+      }
+	  header h3 {
+		/*margin: 0%;*/
+		margin-left: 3.4%;
+		background: var(--janela); 
+		color: var(--textopadrao);	
+	  }
+	  
+      section {
+		  position: absolute;
+		  overflow-y: auto;
+		  width: 70%;
+		  height: 96%;
+		  color: var(--textopadrao);
+      }
+      section::-webkit-scrollbar {
+		display: none;
+      }
+      nav::-webkit-scrollbar {
+		width: 5px;
+      }
+      nav::-webkit-scrollbar-track {
+		background: var(--background); 
+      }
+      nav::-webkit-scrollbar-thumb {
+		background: var(--background);
+      }
+      nav::-webkit-scrollbar-thumb:hover {
+		background: var(--janela);
+      }
+      article {
+		  background-color: var(--janela);
+		  margin-top: 3%;
+		  margin-left: 9%;
+		  width: 90%;
+		  border-radius: 10px;
+      }
+
+	  article h1 {
+		  padding: 2% 0 1.5% 3%;
+		  margin-left: 5px;
+	  }
+	  
+	  article .post {
+		  padding: 2%;
+		  width: 96%;
+	  }
+	
+	  article * {
+		  background-color: var(--janela);
+	  }
+	  
+      nav {
+		  padding-top: 2%;
+		  overflow-y: scroll;
+		  height: 93%;
+		  width: 25%;
+		  float: right;
+      }
+      #menu  {
+		  color: var(--textotitulo);
+      } 
+      #menu ul {
+		  margin-left: 1.01em;
+		  margin-top: 2em;
+      }
+      #menu h3 {
+		border-bottom: 1px solid var(--headerborda);
+      }
+      #menu ul li {
+		  margin: 0 0 2em;
+		  list-style-type: none;
+      }
+      #menu ul li a {
+		color: var(--textopadrao);	
+      }
+      #menu ul li a:hover {
+		color: var(--textotitulo);
+      }
+
+	#menu .post {
+		/*background-color: #FF0000;*/
+		width: 32px;
+		height: 32px;
+		border-radius: 50px;
+		background-image: url('C:/Users/Nome/Pictures/Logo/perfil.png');
+		background-repeat: no-repeat;
+		background-size: auto 100%;
+		display: inline-block;
+		margin-right: 15px;
+		vertical-align: middle;
+	}
+	
+	
+	.logo {
+		background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="isolation:isolate" viewBox="123.772 23.997 740.865 777.605" width="740.865" height="777.605"><path d=" M 471.521 24.002 C 402.612 24.217 339.427 41.918 289.552 58.873 C 289.552 58.873 310.318 56.536 297.738 72.648 C 246.942 105.869 187.716 153.147 141.701 249.361 C 231.968 96.542 382.261 69.211 517.714 86.645 C 612.064 98.788 695.947 171.417 742.39 262.611 C 806.659 388.809 790.666 496.778 735.46 574.49 C 737.792 563.419 724.062 548.891 724.062 548.891 C 733.401 649.36 442.292 811.694 281.054 616.111 C 212.796 533.314 256.782 338.748 360.419 340.131 C 360.07 351.116 360.453 362.204 369.372 374.514 C 379.979 361.299 388.776 364.374 397.519 367.938 C 388.671 404.361 466.728 420.731 502.732 446.805 C 502.732 446.805 502.193 451.252 488.458 449.309 C 506.402 464.992 518.118 475.13 530.876 479.145 C 550.651 485.367 572.679 483.603 580.05 477.209 C 589.132 469.331 589.154 442.373 584.243 434.977 C 576.584 423.44 567.795 424.599 548.189 403.367 C 531.595 376.11 524.672 348.853 498.396 321.596 C 500.299 296.29 502.287 297.123 473.451 263.768 C 464.474 235.836 443.161 208.631 395.134 168.191 C 402.259 193.581 418.215 213.239 416.673 245.402 C 416.673 245.402 408.189 236.492 393.394 237.701 C 393.394 237.701 401.734 250.181 393.976 249.402 C 378.216 238.229 344.794 237.857 323.699 238.268 C 333.539 241.877 345.905 259.739 321.728 263.525 C 210.667 273.583 118.905 421.431 123.972 543.232 C 129.177 524.761 137.298 519.672 137.298 519.672 C 137.485 540.502 139.871 560.928 144.544 580.203 C 150.283 557.943 155.786 534.038 163.359 524.611 C 163.359 524.611 127.905 676.251 310.632 765.141 C 493.36 854.03 697.39 766.352 787.716 652.635 C 921.68 483.981 852.713 281.197 790.238 189.944 C 685.562 37.052 572.234 23.688 471.521 24.002 Z  M 472.04 348.506 C 473.082 348.516 476.088 349.199 483.482 354.518 C 487.149 357.156 495.568 372.85 493.589 373.313 C 489.382 374.296 478.782 366.788 474.693 361.52 C 471.955 357.992 469.704 351.553 471.564 348.574 C 471.564 348.574 471.693 348.503 472.04 348.506 L 472.04 348.506 Z " fill-rule="evenodd" fill="rgb(255,255,255)"/></svg>');
+		background-repeat: no-repeat;
+		background-size: auto 100%;
+		display: inline-block;
+		background-position: 0 0;
+		height: 40%;
+		width: 65%;
+		margin: 1.3%;
+		margin-left: 2.8%;
+		background-color: var(--janela);
+	}
+   </style>
+</head>
+
+<body>
+   <header>
+		<!--span class="logo"><h3>DeehLeh</h3></span-->
+		
+   </header>
+
+   <nav>
+      <div id="menu">
+         <h3>Menu</h3>
+         <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Produtos</a></li>
+            <li><a href="#">Contato</a></li>
+         </ul>
+         <h3>Posts</h3>
+         <ul>
+            <li><a href="#"><div class="post"></div>Plugins</a></li>
+            <li><a href="#"><div class="post"></div>Softwares</a></li>
+            <li><a href="#"><div class="post"></div>Modulos</a></li>
+            <li><a href="#"><div class="post"></div>Dicas</a></li>
+         </ul>
+      </div>
+   </nav>
+
+   <section>
+      <article>
+		<h1>What is Lorem Ipsum?</h1>
+        <div class="post">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</div>
+      </article>
+
+      <article>
+		<h1>Titulo</h1>
+		<img src="C:\Users\Nome\Pictures\Logo\perfil.png">
+      </article>
+
+      <article><img src="C:\Users\Nome\Pictures\Logo\perfil.png"></article>
+
+      <article>
+		<h1>Why do we use it?</h1>
+		<img src="C:\Users\Nome\Pictures\Logo\perfil.png">
+		<div class="post">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</div>
+      </article>
+
+      <article>
+		<h1>Where can I get some?</h1>
+		<div class="post">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.</div>
+		<img src="C:\Users\Nome\Pictures\Logo\perfil.png">
+      </article>
+
+      <article>
+		<h1>Where does it come from?</h1>
+		<div class="post">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</div>
+		<img src="C:\Users\Nome\Pictures\Logo\perfil.png">
+		<div class="post">The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.</div>
+      </article>
+	  
+      <article>(...)</article>
+      <article>(...)</article>
+      <article>(...)</article>
+      <article>(...)</article>
+      <article>(...)</article>
+      <article>(...)</article>
+      <article>(...)</article>
+      <article>(...)</article>
+      <article>(...)</article>
+      <article>(...)</article>
+      <article>(...)</article>
+      <article>(...)</article>
+      <article>(...)</article>
+      <article>(...)</article>
+      <article>(...)</article>
+      <article>(...)</article>
+      <article>(...)</article>
+      <article>(...)</article>
+      <article>(...)</article>
+      <article>(...)</article>
+      <article>(...)</article>
+      <article>(...)</article>
+      <article>(...)</article>
+      <article>(...)</article>
+      <article>(...)</article>
+      <article>(...)</article>
+      <article>(...)</article>
+      <article>(...)</article>
+      <article>(...)</article>
+      <article>(...)</article>
+      <article>(...)</article>
+      <article>(...)</article>
+      <article>(...)</article>
+      <article>(...)</article>
+      <article>(...)</article>
+      <article>(...)</article>
+      <article>(...)</article>
+      <article>(...)</article>
+      <article>(...)</article>
+      <article>(...)</article>
+      <article>(...)</article>
+      <article>(...)</article>
+      <article>(...)</article>
+      <article>(...)</article>
+      <article>(...)</article>
+      <article>(...)</article>
+      <article>(...)</article>
+      <article>(...)</article>
+      <article>(...)</article>
+      <article>(...)</article>
+      <article>(...)</article>
+      <article>(...)</article>
+      <article>(...)</article>
+      <article>(...)</article>
+      <article>(...)</article>
+      <article>(...)</article>
+      <article>(...)</article>
+      <article>(...)</article>
+      <article>(...)</article>
+      <article>(...)</article>
+   </section>
+</body>
